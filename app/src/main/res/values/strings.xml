@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">PachinkoApplication</string>
+    <string name="calendar">カレンダーへ遷移</string>
+    <string name="counter">カウンタ画面に遷移</string>
 </resources>
