@@ -7,8 +7,7 @@ import androidx.appcompat.app.AppCompatActivity;
 public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        //ウホ
-        //うほ3
+        //ウホ3
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
     }

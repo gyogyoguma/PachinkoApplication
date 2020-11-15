@@ -6,11 +6,5 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-    <ImageButton
-        android:id="@+id/imageButton"
-        android:layout_width="229dp"
-        android:layout_height="279dp"
-        app:srcCompat="@drawable/ic_launcher_foreground"
-        tools:layout_editor_absoluteX="93dp"
-        tools:layout_editor_absoluteY="189dp" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
