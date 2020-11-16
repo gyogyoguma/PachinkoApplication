@@ -101,6 +101,7 @@ public class Counter extends AppCompatActivity {
             TextView start_text = (TextView) findViewById(R.id.start_text);
             String text = start_edit.getText().toString();    //EditText(テキストボックス)から文字列を取得
             if (!text.equals("")) {
+                start = Integer.parseInt(text);
                 start_text.setText(text);    //TextViewに文字列をセット
                 start_edit.setText("");
             }
@@ -116,7 +117,10 @@ public class Counter extends AppCompatActivity {
                 TextView total_text = (TextView) findViewById(R.id.total_text);
                 String text = total_edit.getText().toString();    //EditText(テキストボックス)から文字列を取得
                 if (!text.equals("")) {
-                    total_text.setText(text);    //TextViewに文字列をセット
+                    total = Integer.parseInt(text);
+                    //開始回転数と総合回転数を
+                    total = total - start;
+                    total_text.setText(String.valueOf(total));    //TextViewに文字列をセット
                     total_edit.setText("");
                 }
             }
