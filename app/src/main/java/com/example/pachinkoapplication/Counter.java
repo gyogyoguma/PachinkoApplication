@@ -51,7 +51,17 @@ public class Counter extends AppCompatActivity {
     private View.OnClickListener onClick_Cherry_button = new View.OnClickListener() {
         @Override
         public void onClick(View v) {
-            //押下された時の処理を記載
+            //cherryが押下された際に1を追加し、cherry_coutに表示する
+            cherry = cherry + 1;
+            TextView cherry_count = (TextView) findViewById(R.id.cherry_count);
+            TextView cherry_probability = (TextView) findViewById(R.id.cherry_probability);
+            cherry_count.setText(String.valueOf(cherry));    //TextViewに文字列をセット
+            if (total != 0) {
+                double probability = (double)total / cherry;
+                double cherry_rounding = ((double)Math.round(probability * 10))/10;
+                String cherry_text = "1/" + String.valueOf(cherry_rounding);
+                cherry_probability.setText(cherry_text);    //TextViewに文字列をセット
+            }
 
         }
     };
@@ -122,6 +132,7 @@ public class Counter extends AppCompatActivity {
                     total = total - start;
                     total_text.setText(String.valueOf(total));    //TextViewに文字列をセット
                     total_edit.setText("");
+                    total = Integer.parseInt(text);
                 }
             }
         };

@@ -186,12 +186,14 @@
                     android:background="@android:color/transparent"
                     app:srcCompat="@drawable/cherry_button_icon"/>
                 <TextView
+                    android:id="@+id/cherry_count"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:textSize="18dp"
-                    android:text="0回"
+                    android:text="0"
                     android:layout_gravity="center" />
                 <TextView
+                    android:id="@+id/cherry_probability"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:textSize="18dp"
