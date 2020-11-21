@@ -219,13 +219,14 @@
                     android:layout_gravity="center"
                     android:background="@android:color/transparent"
                     app:srcCompat="@drawable/replay_button_icon"/>
+
                 <TextView
                     android:id="@+id/replay_count"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textSize="18dp"
-                    android:text="0回"
-                    android:layout_gravity="center" />
+                    android:layout_gravity="center"
+                    android:text="0"
+                    android:textSize="18dp" />
                 <TextView
                     android:id="@+id/replay_probability"
                     android:layout_width="wrap_content"
@@ -254,13 +255,14 @@
                     android:layout_gravity="center"
                     android:background="@android:color/transparent"
                     app:srcCompat="@drawable/watermelon_button_icon"/>
+
                 <TextView
                     android:id="@+id/watermelon_count"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textSize="18dp"
-                    android:text="0回"
-                    android:layout_gravity="center" />
+                    android:layout_gravity="center"
+                    android:text="0"
+                    android:textSize="18dp" />
                 <TextView
                     android:id="@+id/watermelon_probability"
                     android:layout_width="wrap_content"
@@ -289,13 +291,14 @@
                     android:layout_gravity="center"
                     android:background="@android:color/transparent"
                     app:srcCompat="@drawable/bell_button_icon"/>
+
                 <TextView
                     android:id="@+id/bell_count"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textSize="18dp"
-                    android:text="0回"
-                    android:layout_gravity="center" />
+                    android:layout_gravity="center"
+                    android:text="0"
+                    android:textSize="18dp" />
                 <TextView
                     android:id="@+id/bell_probability"
                     android:layout_width="wrap_content"
