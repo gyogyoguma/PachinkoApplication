@@ -6,6 +6,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.TextView;
+
 //TextWatcherを使うと確定ボタンいらなくなりそう
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -18,6 +19,27 @@ public class Counter extends AppCompatActivity {
     int replay;
     int watermelon;
     int bell;
+    boolean cherry_flag = false;
+    boolean replay_flag = false;
+    boolean watermelon_flag = false;
+    boolean bell_flag = false;
+
+
+    //Wighetの変数
+    TextView cherry_count;
+    TextView cherry_probability;
+    //TextView cherry_text;
+    TextView replay_count;
+    TextView replay_probability;
+    TextView watermelon_count;
+    TextView watermelon_probability;
+    TextView bell_count;
+    TextView bell_probability;
+    TextView start_text;
+    TextView total_text;
+    EditText start_edit;
+    EditText total_edit;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -53,8 +75,8 @@ public class Counter extends AppCompatActivity {
         public void onClick(View v) {
             //cherryが押下された際に1を追加し、cherry_coutに表示する
             cherry = cherry + 1;
-            TextView cherry_count = (TextView) findViewById(R.id.cherry_count);
-            TextView cherry_probability = (TextView) findViewById(R.id.cherry_probability);
+            cherry_count = (TextView) findViewById(R.id.cherry_count);
+            cherry_probability = (TextView) findViewById(R.id.cherry_probability);
             cherry_count.setText(String.valueOf(cherry));    //TextViewに文字列をセット
             if (total != 0) {
                 double probability = (double)total / cherry;
@@ -62,7 +84,7 @@ public class Counter extends AppCompatActivity {
                 String cherry_text = "1/" + String.valueOf(cherry_rounding);
                 cherry_probability.setText(cherry_text);    //TextViewに文字列をセット
             }
-
+            cherry_flag = true;
         }
     };
 
@@ -72,8 +94,8 @@ public class Counter extends AppCompatActivity {
         public void onClick(View v) {
             //Replayが押下された際に1を追加し、replay_coutに表示する
             replay = replay + 1;
-            TextView replay_count = (TextView) findViewById(R.id.replay_count);
-            TextView replay_probability = (TextView) findViewById(R.id.replay_probability);
+            replay_count = (TextView) findViewById(R.id.replay_count);
+            replay_probability = (TextView) findViewById(R.id.replay_probability);
             replay_count.setText(String.valueOf(replay));    //TextViewに文字列をセット
             if (total != 0) {
                 double probability = (double) total / replay;
@@ -81,6 +103,7 @@ public class Counter extends AppCompatActivity {
                 String replay_text = "1/" + String.valueOf(replay_rounding);
                 replay_probability.setText(replay_text);    //TextViewに文字列をセット
             }
+            replay_flag = true;
         }
     };
 
@@ -90,8 +113,8 @@ public class Counter extends AppCompatActivity {
         public void onClick(View v) {
             //Watermelonが押下された際に1を追加し、replay_coutに表示する
             watermelon = watermelon + 1;
-            TextView watermelon_count = (TextView) findViewById(R.id.watermelon_count);
-            TextView watermelon_probability = (TextView) findViewById(R.id.watermelon_probability);
+            watermelon_count = (TextView) findViewById(R.id.watermelon_count);
+            watermelon_probability = (TextView) findViewById(R.id.watermelon_probability);
             watermelon_count.setText(String.valueOf(watermelon));    //TextViewに文字列をセット
             if (total != 0) {
                 double probability = (double) total / watermelon;
@@ -99,6 +122,7 @@ public class Counter extends AppCompatActivity {
                 String replay_text = "1/" + String.valueOf(watermelon_rounding);
                 watermelon_probability.setText(replay_text);    //TextViewに文字列をセット
             }
+            watermelon_flag = true;
         }
     };
 
@@ -109,8 +133,8 @@ public class Counter extends AppCompatActivity {
         public void onClick(View v) {
             //Bellが押下された際に1を追加し、replay_coutに表示する
             bell = bell + 1;
-            TextView bell_count = (TextView) findViewById(R.id.bell_count);
-            TextView bell_probability = (TextView) findViewById(R.id.bell_probability);
+            bell_count = (TextView) findViewById(R.id.bell_count);
+            bell_probability = (TextView) findViewById(R.id.bell_probability);
             bell_count.setText(String.valueOf(bell));    //TextViewに文字列をセット
             if (total != 0) {
                 double probability = (double) total / bell;
@@ -118,6 +142,7 @@ public class Counter extends AppCompatActivity {
                 String replay_text = "1/" + String.valueOf(bell_rounding);
                 bell_probability.setText(replay_text);    //TextViewに文字列をセット
             }
+            bell_flag = true;
         }
     };
 
@@ -127,40 +152,41 @@ public class Counter extends AppCompatActivity {
         public void onClick(View v) {
             //開始回転数をリセットする
             start = 0;
-            TextView start_text = (TextView) findViewById(R.id.start_text);
+            start_text = (TextView) findViewById(R.id.start_text);
             start_text.setText(String.valueOf(start));
             //総合回転数をリセットする
             total = 0;
-            TextView total_text = (TextView) findViewById(R.id.total_text);
+            total_text = (TextView) findViewById(R.id.total_text);
             total_text.setText(String.valueOf(total));
             //cherryをリセットする
             cherry = 0;
-            TextView cherry_count = (TextView) findViewById(R.id.cherry_count);
-            TextView cherry_probability = (TextView) findViewById(R.id.cherry_probability);
+            cherry_count = (TextView) findViewById(R.id.cherry_count);
+            cherry_probability = (TextView) findViewById(R.id.cherry_probability);
             cherry_count.setText(String.valueOf(cherry));    //TextViewに文字列をセット
-            String cherry_text = "1/" + cherry;
-            cherry_probability.setText(cherry_text);    //TextViewに文字列をセット
+            cherry_probability.setText("1/" + cherry);    //TextViewに文字列をセット
+            cherry_flag = false;
             //replayをリセットする
             replay = 0;
-            TextView replay_count = (TextView) findViewById(R.id.replay_count);
+            replay_count = (TextView) findViewById(R.id.replay_count);
             TextView replay_probability = (TextView) findViewById(R.id.replay_probability);
             replay_count.setText(String.valueOf(replay));    //TextViewに文字列をセット
-            String replay_text = "1/" + replay;
-            replay_probability.setText(replay_text);    //TextViewに文字列をセット
+            replay_probability.setText("1/" + replay);    //TextViewに文字列をセット
+            replay_flag = false;
             //watermelonをリセットする
             watermelon =0;
-            TextView watermelon_count = (TextView) findViewById(R.id.watermelon_count);
-            TextView watermelon_probability = (TextView) findViewById(R.id.watermelon_probability);
+            watermelon_count = (TextView) findViewById(R.id.watermelon_count);
+            watermelon_probability = (TextView) findViewById(R.id.watermelon_probability);
             watermelon_count.setText(String.valueOf(watermelon));    //TextViewに文字列をセット
-            String watermelon_text = "1/" + watermelon;
-            watermelon_probability.setText(watermelon_text);    //TextViewに文字列をセット
+            watermelon_probability.setText("1/" + watermelon);    //TextViewに文字列をセット
+            watermelon_flag = false;
             //bellをリセットする
             bell = 0;
-            TextView bell_count = (TextView) findViewById(R.id.bell_count);
-            TextView bell_probability = (TextView) findViewById(R.id.bell_probability);
+            bell_count = (TextView) findViewById(R.id.bell_count);
+            bell_probability = (TextView) findViewById(R.id.bell_probability);
             bell_count.setText(String.valueOf(bell));    //TextViewに文字列をセット
-            String bell_text = "1/" + bell;
-            bell_probability.setText(bell_text);    //TextViewに文字列をセット
+            bell_probability.setText("1/" + bell);    //TextViewに文字列をセット
+            bell_flag = false;
+            SetUp();
         }
     };
 
@@ -169,14 +195,15 @@ public class Counter extends AppCompatActivity {
         @Override
         public void onClick(View v) {
             //押下された時の処理を記載
-            EditText start_edit = (EditText) findViewById(R.id.start_edit);
-            TextView start_text = (TextView) findViewById(R.id.start_text);
+            start_edit = (EditText) findViewById(R.id.start_edit);
+            start_text = (TextView) findViewById(R.id.start_text);
             String text = start_edit.getText().toString();    //EditText(テキストボックス)から文字列を取得
             if (!text.equals("")) {
                 start = Integer.parseInt(text);
                 start_text.setText(text);    //TextViewに文字列をセット
                 start_edit.setText("");
             }
+            SetUp();
         }
     };
 
@@ -185,8 +212,8 @@ public class Counter extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 //押下された時の処理を記載
-                EditText total_edit = (EditText) findViewById(R.id.total_edit);
-                TextView total_text = (TextView) findViewById(R.id.total_text);
+                total_edit = (EditText) findViewById(R.id.total_edit);
+                total_text = (TextView) findViewById(R.id.total_text);
                 String text = total_edit.getText().toString();    //EditText(テキストボックス)から文字列を取得
                 if (!text.equals("")) {
                     total = Integer.parseInt(text);
@@ -196,6 +223,7 @@ public class Counter extends AppCompatActivity {
                     total_edit.setText("");
                     total = Integer.parseInt(text);
                 }
+                SetUp();
             }
         };
 
@@ -204,11 +232,12 @@ public class Counter extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 //押下された時の処理を記載
-                TextView total_text = (TextView) findViewById(R.id.total_text);
+                total_text = (TextView) findViewById(R.id.total_text);
                 String text = total_text.getText().toString();    //Text(テキストボックス)から文字列を取得
                 int sum = Integer.parseInt(text);   //String型をInt型に変換
-                sum = sum - 1;                      //1を減算
-                total_text.setText( String.valueOf(sum));    //TextViewに文字列をセット
+                total = sum - 1;                      //1を減算
+                total_text.setText( String.valueOf(total));    //TextViewに文字列をセット
+                SetUp();
             }
         };
 
@@ -217,11 +246,29 @@ public class Counter extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 //押下された時の処理を記載
-                TextView total_text = (TextView) findViewById(R.id.total_text);
+                total_text = (TextView) findViewById(R.id.total_text);
                 String text = total_text.getText().toString();    //Text(テキストボックス)から文字列を取得
                 int sum = Integer.parseInt(text);   //String型をInt型に変換
-                sum = sum + 1;                      //1を加算
-                total_text.setText( String.valueOf(sum));    //TextViewに文字列をセット
+                total = sum + 1;                      //1を加算
+                total_text.setText( String.valueOf(total));    //TextViewに文字列をセット
+                SetUp();
             }
         };
+
+        private void SetUp() {
+            if (total != 0) {
+                if (cherry_flag) {
+                    cherry_probability.setText("1/" + String.valueOf(((double)Math.round((double)total / cherry * 10))/10));
+                }
+                if (replay_flag) {
+                    replay_probability.setText("1/" + String.valueOf(((double) Math.round((double)total / replay * 10)) / 10));
+                }
+                if (watermelon_flag) {
+                    watermelon_probability.setText("1/" + String.valueOf(((double) Math.round((double)total / watermelon * 10)) / 10));
+                }
+                if (bell_flag) {
+                    bell_probability.setText("1/" + String.valueOf(((double) Math.round((double)total / bell * 10)) / 10));
+                }
+            }
+        }
 }
