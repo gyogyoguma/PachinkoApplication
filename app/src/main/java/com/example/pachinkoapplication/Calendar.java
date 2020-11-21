@@ -1,8 +1,9 @@
 package com.example.pachinkoapplication;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.os.Bundle;
+import android.widget.CalendarView;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 public class Calendar extends AppCompatActivity {
 
@@ -10,5 +11,9 @@ public class Calendar extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_calendar);
+
+        // CalendarViewに現在日時を設定します。
+        CalendarView calendarView = (CalendarView) findViewById(R.id.calendarView);
+
     }
 }
