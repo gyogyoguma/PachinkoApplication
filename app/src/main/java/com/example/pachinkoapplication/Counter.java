@@ -23,6 +23,7 @@ public class Counter extends AppCompatActivity {
     boolean replay_flag = false;
     boolean watermelon_flag = false;
     boolean bell_flag = false;
+    boolean start_flag = false;
 
 
     //Wighetの変数
@@ -154,6 +155,7 @@ public class Counter extends AppCompatActivity {
             start = 0;
             start_text = (TextView) findViewById(R.id.start_text);
             start_text.setText(String.valueOf(start));
+            start_flag = false;
             //総合回転数をリセットする
             total = 0;
             total_text = (TextView) findViewById(R.id.total_text);
@@ -202,8 +204,15 @@ public class Counter extends AppCompatActivity {
                 start = Integer.parseInt(text);
                 start_text.setText(text);    //TextViewに文字列をセット
                 start_edit.setText("");
+                start_flag = true;
             }
-            SetUp();
+            if (start_flag){
+                //開始回転数と総合回転数を
+                total = total - start;
+                total_text.setText(String.valueOf(total));    //TextViewに文字列をセット
+                SetUp();
+            }
+            start_flag = false;
         }
     };
 
