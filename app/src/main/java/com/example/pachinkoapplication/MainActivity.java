@@ -3,6 +3,7 @@ package com.example.pachinkoapplication;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.view.animation.AnimationUtils;
 import android.widget.Button;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -13,6 +14,8 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         //どのレイアウトを画面として表示させるのかを設定する
         setContentView(R.layout.activity_main);
+
+        findViewById(R.id.chara).startAnimation(AnimationUtils.loadAnimation(this, R.anim.up_down));
     }
 
     @Override
