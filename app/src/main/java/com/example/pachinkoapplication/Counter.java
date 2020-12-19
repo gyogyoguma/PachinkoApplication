@@ -11,6 +11,8 @@ import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+
+
 public class Counter extends AppCompatActivity {
     //フィールド変数(現クラスのどのメソッドでも利用可能な変数)
     int start = 0;
@@ -45,8 +47,8 @@ public class Counter extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_counter);
 
+        setContentView(R.layout.activity_counter);
         // ボタンを設定
         Button start_commit = findViewById(R.id.start_commit);
         Button total_commit = findViewById(R.id.total_commit);

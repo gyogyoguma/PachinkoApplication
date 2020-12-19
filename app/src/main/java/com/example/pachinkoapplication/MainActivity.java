@@ -7,7 +7,9 @@ import android.view.animation.AnimationUtils;
 import android.widget.Button;
 
 import androidx.appcompat.app.AppCompatActivity;
-//douya?
+
+
+
 public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -22,14 +24,14 @@ public class MainActivity extends AppCompatActivity {
     protected void onResume() {
         super.onResume();
         // ボタンを設定
-        Button calender_button = findViewById(R.id.calendar_button);
+        Button calendar_button = findViewById(R.id.calendar_button);
         Button counter_button = findViewById(R.id.counter_button);
-        calender_button.setOnClickListener(onCalenderClick_button);
+        calendar_button.setOnClickListener(onCalendarClick_button);
         counter_button.setOnClickListener(onCounterClick_button);
     }
 
     //calendar_buttonが押下された時の処理
-    private View.OnClickListener onCalenderClick_button = new View.OnClickListener(){
+    private View.OnClickListener onCalendarClick_button = new View.OnClickListener(){
         @Override
         public void onClick(View v) {
             //MainActivityクラスから、Calendarクラスへ遷移
